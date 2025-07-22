@@ -13,8 +13,13 @@ export default function Chat() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!name || !room) return;
-    socket.emit("join-room", { name, room });
+    if (!name || !room) {
+      navigate("/");
+      return;
+    }
+    if (name && room) {
+      socket.emit("join-room", { name, room });
+    }
 
     socket.on("room-users", (roomUsers) => {
       setUsers(roomUsers);
@@ -26,12 +31,20 @@ export default function Chat() {
 
     socket.on("receive-message", handleReceivedMsg);
 
+    const handleUnload = () => {
+      socket.emit("leave-room", { name, room });
+      navigate("/");
+    };
+    window.addEventListener("beforeunload", handleUnload);
+
     return () => {
+      socket.emit("leave-room", { name, room });
       socket.off("receive-message", handleReceivedMsg);
     };
-  }, [name, room]);
+  }, [name, room, navigate]);
 
   const sendMessage = () => {
+    if (!message.trim()) return;
     socket.emit("send-message", {
       name: state.name,
       room: state.room,
@@ -39,7 +52,6 @@ export default function Chat() {
     });
     setMessage("");
   };
-
   const handleLeave = () => {
     socket.emit("leave-room", { name, room });
     navigate("/");
