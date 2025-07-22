@@ -53,18 +53,18 @@ io.on("connection", (socket) => {
     }
   });
 
-  // socket.on("disconnect", () => {
-  //   for (const room in users) {
-  //     const index = users[room].findIndex((user) => user.id === socket.id);
-  //     if (index !== -1) {
-  //       const name = users[room][index].name;
-  //       users[room].splice(index, 1);
-  //       io.to(room).emit("room-users", users[room].map((user) => user.name));
-  //       console.log(`${name} disconnected from ${room}`);
-  //       break;
-  //     }
-  //   }
-  // });
+  socket.on("disconnect", () => {
+    for (const room in users) {
+      const index = users[room].findIndex((user) => user.id === socket.id);
+      if (index !== -1) {
+        const name = users[room][index].name;
+        users[room].splice(index, 1);
+        io.to(room).emit("room-users", users[room].map((user) => user.name));
+        console.log(`${name} disconnected from ${room}`);
+        break;
+      }
+    }
+  });
 });
 
 server.listen(PORT, () => {
