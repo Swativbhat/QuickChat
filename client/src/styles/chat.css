@@ -1,0 +1,193 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.containers {
+  width: 100vw;
+  height: 100vh;
+  background-color: #9cbac6;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.containers .heading {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  width: 99vw;
+  height: 10%;
+  border-radius: 10px;
+  background-color: #5b8dd7;
+}
+
+.leave-button button {
+  height: 38px;
+  width: 95px;
+  padding: 5px;
+  border:1px solid black;
+  background-color: rgb(115, 194, 255);
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  outline: none;
+}
+
+.containers .chat-body {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.chat-body .active-users {
+  height: 89vh;
+  width: 20%;
+  background-color: #5b8dd7;
+  border-radius: 10px;
+  margin-top: 8px;
+  padding: 10px;
+}
+
+.active-users h2 {
+  font-size: px;
+  padding: 10px;
+}
+
+.active-users .user-name {
+  font-size: 23px;
+  padding: 15px;
+}
+
+.active-users .user-name:hover {
+  font-size: 25px;
+}
+
+.chat-body .message-area {
+  height: 90vh;
+  width: 80%;
+
+  background-color: #9cbac6;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  flex-direction: column;
+}
+
+.message-area .messages {
+  flex-grow: 1; 
+  overflow-y: auto;
+  padding: 10px;
+}
+
+.messages .msg {
+  height: 50px;
+  width: 600px;
+  overflow-y: auto;
+  background-color: #5b8dd7;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+  font-size: 20px;
+}
+
+.send-message {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 5px;
+}
+
+.send-message input {
+  height: 50px;
+  width: 1100px;
+  margin-left: 13px;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+}
+
+.send-message button {
+  height: 50px;
+  width: 95px;
+  margin-left: 10px;
+  background-color: #5b8dd7;
+  border-radius: 10px;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+
+@media (max-width: 768px) {
+  .containers {
+    padding: 5px;
+  }
+
+  .containers .heading {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .chat-body {
+    flex-direction: column;
+  }
+
+  .chat-body .active-users {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+  }
+
+  .active-users h2 {
+    font-size: 20px;
+    padding: 8px;
+  }
+
+  .active-users .user-name {
+    font-size: 18px;
+    padding: 10px;
+    width: 100%;
+    text-align: left;
+  }
+
+  .chat-body .message-area {
+    width: 100%;
+    height: auto;
+    min-height: 60vh;
+    justify-content: flex-start;
+  }
+
+  .messages .msg {
+    width: 90%;
+    font-size: 16px;
+    height: auto;
+  }
+
+  .send-message {
+    flex-direction: column;
+    align-items: center;
+    margin: 10px 0;
+    width:100%;
+  }
+
+  .send-message input {
+    width: 90%;
+    margin: 5px 0;
+    height: 45px;
+    font-size: 16px;
+  }
+
+  .send-message button {
+    width: 90%;
+    height: 45px;
+    font-size: 18px;
+  }
+}

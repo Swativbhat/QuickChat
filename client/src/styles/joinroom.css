@@ -1,0 +1,109 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  background: linear-gradient(90deg, #9cbac6 50%, #5b8dd7 50%);
+  background-size: cover;
+  background-position: center;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  padding: 20px;
+}
+
+.input-area {
+  width: 100%;
+  max-width: 450px;
+  min-width: 280px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  padding: 20px;
+  background: linear-gradient(90deg, #5b8dd7 50%, #9cbac6 50%);
+  box-shadow: 8px 8px 6px rgba(45, 76, 92, 0.7);
+}
+
+.input-area input {
+  outline: none;
+  font-size: 1rem;
+  margin: 10px 0;
+  padding: 6px 10px;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 300px;
+  height: 35px;
+  border: none;
+  background-color: hsl(180, 15%, 94%);
+}
+
+.input-area button {
+  margin-top: 10px;
+  outline: none;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  max-width: 300px;
+  height: 40px;
+  font-weight: 600;
+  border-radius: 6px;
+  background-color: #eaecee;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.input-area button:hover {
+  background-color: #aedcef;
+}
+
+.input-area h2 {
+  margin-bottom: 10px;
+  font-size: 2rem;
+  color: rgb(1, 4, 28);
+  font-style: oblique;
+}
+
+@media (max-width: 768px) {
+  .container {
+    background: linear-gradient(180deg, #9cbac6 50%, #5b8dd7 50%);
+    flex-direction: column;
+  }
+
+  .input-area {
+    padding: 15px;
+    width: 100%;
+    max-width: 90%;
+  }
+
+  .input-area h2 {
+    font-size: 1.6rem;
+  }
+
+  .input-area input,
+  .input-area button {
+    max-width: 100%;
+    font-size: 0.95rem;
+    height: 38px;
+  }
+}
+
+@media (max-width: 480px) {
+  .input-area h2 {
+    font-size: 1.4rem;
+  }
+
+  .input-area input,
+  .input-area button {
+    font-size: 0.9rem;
+    height: 36px;
+  }
+}
